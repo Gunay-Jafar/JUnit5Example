@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 public class BMICalculatorTest {
+
+    private String environment = "prod";
 
     @Test
     void CoderListNotEmpty() {
@@ -30,6 +33,8 @@ public class BMICalculatorTest {
 
     @Test
     void returnCoderWorst() {
+
+        assumeTrue(this.environment.equals("prod"));
         List<Coder> coders = new ArrayList<>();
         for (int i = 0; i < 10000; i++) {
             coders.add(new Coder(1.0 + i, 10.0 + i));
@@ -37,7 +42,7 @@ public class BMICalculatorTest {
 
         Executable executable = () -> BMICalculator.findCoderWithWorstBMI(coders);
 
-        assertTimeout(Duration.ofMillis(500),executable);
+        assertTimeout(Duration.ofMillis(500), executable);
     }
 
 
