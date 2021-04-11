@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BMICalculatorTest {
 
@@ -25,5 +24,19 @@ public class BMICalculatorTest {
                 () -> assertEquals(98.0, coder.getWeight())
 
         );
+    }
+
+    @Test
+    void BMIScoreArray_coderListNotEmpty() {
+
+        List<Coder> coders = new ArrayList<>();
+        coders.add(new Coder(1.80, 60.0));
+        coders.add(new Coder(1.82, 98.0));
+        coders.add(new Coder(1.82, 64.7));
+        double[] expected = {18.52,29.59,19.53};
+
+        double[] bmiScores = BMICalculator.getBMIScores(coders);
+
+        assertArrayEquals(expected,bmiScores);
     }
 }
