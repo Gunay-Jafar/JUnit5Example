@@ -5,7 +5,7 @@ public class Coder {
     private double height;
     private double weight;
     private int age;
-    private String gender;
+    private Gender gender;
 
     public double getHeight() {
         return height;
@@ -31,17 +31,23 @@ public class Coder {
         this.age = age;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
     public Coder(double height, double weight) {
         this.height = height;
         this.weight = weight;
+    }
 
+    public Coder(double height, double weight, int age, Gender gender) {
+        this.height = height;
+        this.weight = weight;
+        this.age = age;
+        this.gender = gender;
     }
 }
