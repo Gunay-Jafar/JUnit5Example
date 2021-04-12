@@ -1,5 +1,7 @@
 package com.example.healthycoderapp;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -15,6 +17,8 @@ public class BMICalculatorTest {
     private String environment = "prod";
 
     @Test
+    @DisplayName(">>>> sample method display name")
+  //  @Disabled
     void CoderListNotEmpty() {
 
         List<Coder> coders = new ArrayList<>();
@@ -44,7 +48,6 @@ public class BMICalculatorTest {
 
         assertTimeout(Duration.ofMillis(500), executable);
     }
-
 
     @Test
     void BMIScoreArray_coderListNotEmpty() {
